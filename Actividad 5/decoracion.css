@@ -1,0 +1,79 @@
+body{
+    margin: 0;
+}
+header{
+    background-color: black;
+    padding: 20px;
+}
+.elheader{
+    display: flex;
+    justify-content: space-between;  
+    gap: 10px;  
+    color: white;  
+}
+nav{
+    display: flex;
+    justify-content: center;  
+    gap: 30px;    
+}
+nav a{
+    color: white;
+    text-decoration: none;
+    font-family: Arial,sans-serif;
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+
+}
+h2{
+    font-family: sans-serif;
+}
+p{
+    text-align: justify;
+    font-family:"Ek Mukta", sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1.5;
+}
+h3{
+    font-family: sans-serif;
+}
+.imagenes{
+    display: flex;
+    justify-content: center;  
+    gap: 10px;    
+}
+footer{
+    background-color: #EBE6E6;
+}
+.orangotango{
+    display: flex;
+    justify-content: center;  
+    gap: 10px;    
+}
+.redes{
+    display: flex;
+    align-items: center;  
+    gap: 10px;  
+}
+.support{
+    display: flex;
+    justify-content: center;  
+    gap: 10px;
+}
+button{
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
