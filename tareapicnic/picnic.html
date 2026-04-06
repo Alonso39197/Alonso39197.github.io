@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picnic CSS</title>
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
+  
+  <style>
+    .flex.demo{
+     margin: .2em 0;
+     background: #fff68f;
+     text-align: center;
+    }
+    .flex.demo div {
+      border:.1em solid burlywood;
+    }
 
+  </style>
+</head>
+<body>
+  
+
+  <button id="musico">Primer grupo favorito</button>
+  <button id="otroArtista" class="success"> Segundo grupo favorito</button>
+  <div class="flex two four-1200 demo">
+    <div id="bio">1</div>
+    <div id="imagen">2</div>
+    <div id="bio2">3</div>
+    <div id="imagen2">4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+  
+  </div>
+<div class="tabs two">
+  <input id='tab-1' type='radio' name='tabgroupB' checked />
+  <label class="pseudo button toggle" for="tab-1">¿Cómo fue tu vivencia el domingo?</label>
+  <input id='tab-2' type='radio' name='tabgroupB'>
+  <label class="pseudo button toggle" for="tab-2">¿Qué te gustaría que cambiara?</label>
+  <div class="row">
+    <div>
+      <p>Para mi, el domingo no fue tan intenso, aunque si tome mucho mis precauciones, no dejar carros afuera y tratamos de hacer algunas compras justo antes de la 1, pero   
+        donde fuimos no había nada de comida, todo se había acabado por lo que comimos muy mal ese día, y como dije a mi no me afecto mucho pero a familiares y conocidos si les afectaron mucho la situación
+        aunque justo el sabado mi madre habia ido junto con sus hermanas a un rancho y regresaron el domingo en la mañana pero les toco ver un narcobloqueo. Afortunadamente todo había salido bien
+        y espero que siga saliendo bien todo
+        </p>
+    </div>
+
+    <div>
+      <p>Me gustaría que se atacara el problema de raiz, modificando la educación de las personas en edad temprana como también mejores oportunidades laborales, ya que no todos
+        entran al narco por decisión, ya que llegan a ser engañados con una oferta de trabajo normal para que termine siendo algo tan malo. También que se dejara de normalizar la violencia
+        y aunque estas soluciones tomarian tiempo, prefiero eso a que siga todo igual como ahora
+        <br> <br>
+      </p>
+    </div>
+  </div>
+</div>
+    <script>
+    let biografia;
+
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("musico").addEventListener("click", function() {
+        obtenerArtista("slipknot", biografia, imagen);
+        });
+
+        document.getElementById("otroArtista").addEventListener("click", function() {
+        obtenerArtista("Animals as Leaders", biografia2, imagen2);
+        });
+                    
+    });
+    async function obtenerArtista(nombre, bioDiv, imgDiv) {
+        const res = await fetch(`https://www.theaudiodb.com/api/v1/json/123/search.php?s=${nombre}`);
+        const datos = await res.json();
+
+        bioDiv.innerHTML = "";
+        imgDiv.innerHTML = "";
+
+        const p = document.createElement('p');
+        p.textContent = datos.artists[0].strBiographyEN;
+        bioDiv.appendChild(p);
+
+        const img = document.createElement('img');
+        img.src = datos.artists[0].strArtistThumb;
+        imgDiv.appendChild(img);
+    }
+    </script>
+</body>
+</html>
